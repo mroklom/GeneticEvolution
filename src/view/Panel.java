@@ -4,7 +4,6 @@ import model.Dot;
 import model.Obstacle;
 import model.Population;
 import utilis.LevelObstacles;
-import utilis.WindowsProperties;
 
 import javax.swing.*;
 import java.awt.*;

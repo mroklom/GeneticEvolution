@@ -25,9 +25,8 @@ public class Window extends JFrame {
 
 
         Insets insets = this.getInsets();
-        System.out.println(insets);
         this.setSize(WindowsProperties.WIDTH.getValue() + insets.left + insets.right, WindowsProperties.HEIGHT.getValue() + insets.top + insets.bottom);
-        //this.setResizable(false);
+        this.setResizable(false);
 
         this.setVisible(true);
 
