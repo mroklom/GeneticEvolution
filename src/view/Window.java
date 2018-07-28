@@ -23,10 +23,8 @@ public class Window extends JFrame {
 
         this.pack();
 
-
         Insets insets = this.getInsets();
         this.setSize(WindowsProperties.WIDTH.getValue() + insets.left + insets.right, WindowsProperties.HEIGHT.getValue() + insets.top + insets.bottom);
-        this.setResizable(false);
 
         this.setVisible(true);
 
@@ -39,7 +37,7 @@ public class Window extends JFrame {
             panel.repaint();
 
             try {
-                Thread.sleep(10000);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

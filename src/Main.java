@@ -6,8 +6,8 @@ public class Main {
 
     public static void main(String[] args) {
         Population population = new Population(
-                20,
-                500
+                50,
+                1000
         );
         new Window(population);
 

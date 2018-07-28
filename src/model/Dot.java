@@ -1,21 +1,36 @@
 package model;
 
+import utilis.LevelObstacles;
+
 import java.util.Arrays;
 
 public class Dot {
     private double x;
     private double y;
+    private int radius = 16;
 
     private boolean dead = false;
 
     private double[] moveDirections;
 
-    public void move(double angle, double length) {
+    public boolean move(double angle, double length) {
 
+        double newX = this.x + length * Math.cos(angle);
+        double newY =this.y + length * Math.sin(angle);
 
+        for (Obstacle obstacle : LevelObstacles.getInstance().getOBSTACLES()) {
 
-        this.x += length * Math.cos(angle);
-        this.y += length * Math.sin(angle);
+            // Check if the new coordinates are in the obstacle
+            boolean xIsInside = newX >= obstacle.getX() && newX <= obstacle.getX() + obstacle.getWidth();
+            boolean yIsInside = newY >= obstacle.getY() && newY <= obstacle.getY() + obstacle.getHeigth();
+            if(xIsInside && yIsInside) {
+                return false;
+            }
+        }
+
+        this.x = newX;
+        this.y = newY;
+        return true;
     }
 
     public Dot(double x, double y, double[] moveDirections) {
@@ -54,5 +69,13 @@ public class Dot {
 
     public void setDead(boolean dead) {
         this.dead = dead;
+    }
+
+    public int getRadius() {
+        return radius;
+    }
+
+    public void setRadius(int radius) {
+        this.radius = radius;
     }
 }
