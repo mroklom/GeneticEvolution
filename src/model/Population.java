@@ -7,14 +7,20 @@ public class Population {
     private int n_dots;
     private Dot[] population;
 
-    public Population(int n_dots, int maxX, int maxY) {
+    public Population(int n_dots, int n_movements, int maxX, int maxY) {
         this.n_dots = n_dots;
         this.population = new Dot[n_dots];
 
         for (int i = 0; i < n_dots; i++) {
+            double[] directions = new double[n_movements];
+            for (int j = 0; j < n_movements; j++) {
+                directions[j] = Math.random()*2*Math.PI;
+            }
+            
             population[i] = new Dot(
                     ThreadLocalRandom.current().nextInt(0, maxX),
-                    ThreadLocalRandom.current().nextInt(0, maxY)
+                    ThreadLocalRandom.current().nextInt(0, maxY),
+                    directions
             );
         }
     }

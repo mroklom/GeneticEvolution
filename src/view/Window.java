@@ -23,12 +23,11 @@ public class Window extends JFrame {
 
     private void animate() {
         while (true) {
-        System.out.println("animation");
 
             panel.repaint();
 
             try {
-                Thread.sleep(50);
+                Thread.sleep(10);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

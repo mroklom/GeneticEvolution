@@ -4,14 +4,17 @@ public class Dot {
     private double x;
     private double y;
 
-    public Dot(double x, double y) {
-        this.x = x;
-        this.y = y;
-    }
+    private double[] moveDirections;
 
     public void move(double angle, double length) {
         this.x += length * Math.cos(angle);
         this.y += length * Math.sin(angle);
+    }
+
+    public Dot(double x, double y, double[] moveDirections) {
+        this.x = x;
+        this.y = y;
+        this.moveDirections = moveDirections;
     }
 
     public double getX() {
@@ -30,11 +33,11 @@ public class Dot {
         this.y = y;
     }
 
-    @Override
-    public String toString() {
-        return "Dot{" +
-                "x=" + x +
-                ", y=" + y +
-                '}';
+    public double[] getMoveDirections() {
+        return moveDirections;
+    }
+
+    public void setMoveDirections(double[] moveDirections) {
+        this.moveDirections = moveDirections;
     }
 }

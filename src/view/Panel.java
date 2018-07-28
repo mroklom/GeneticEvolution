@@ -8,6 +8,8 @@ import java.awt.*;
 
 public class Panel extends JPanel {
 
+    private int n_updates = 0;
+
     private int posX = -50;
     private int posY = -50;
 
@@ -25,9 +27,13 @@ public class Panel extends JPanel {
         // Draw the population
         g.setColor(Color.BLACK);
         for (Dot dot : population.getPopulation()) {
-            dot.move(Math.random()*2*Math.PI, 1);
-            g.fillOval((int) dot.getX(), (int) dot.getY(), 8, 8);
+            if(n_updates < dot.getMoveDirections().length) {
+                dot.move(dot.getMoveDirections()[n_updates], 3);
+            }
+                g.fillOval((int) dot.getX(), (int) dot.getY(), 8, 8);
         }
+
+        n_updates++;
     }
 
     public int getPosX() {
