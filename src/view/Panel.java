@@ -1,7 +1,10 @@
 package view;
 
 import model.Dot;
+import model.Obstacle;
 import model.Population;
+import utilis.LevelObstacles;
+import utilis.WindowsProperties;
 
 import javax.swing.*;
 import java.awt.*;
@@ -21,11 +24,18 @@ public class Panel extends JPanel {
 
     public void paintComponent(Graphics g) {
         // Reset background
-        g.setColor(Color.white);
+        g.setColor(Color.WHITE);
         g.fillRect(0, 0, this.getWidth(), this.getHeight());
 
-        // Draw the population
+        // Draw the obstacles
         g.setColor(Color.BLACK);
+        for(Obstacle obstacle : LevelObstacles.getInstance().getOBSTACLES()) {
+            g.fillRect(obstacle.getX(), obstacle.getY(), obstacle.getWidth(), obstacle.getHeigth());
+        }
+        System.out.println('\n');
+
+        // Draw the population
+        g.setColor(Color.BLUE);
         for (Dot dot : population.getPopulation()) {
 
             // If the point is not dead

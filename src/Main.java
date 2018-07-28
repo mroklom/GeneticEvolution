@@ -9,7 +9,7 @@ public class Main {
                 20,
                 500
         );
-        new Window(WindowsProperties.WIDTH.getValue(), WindowsProperties.HEIGHT.getValue(), population);
+        new Window(population);
 
     }
 }
