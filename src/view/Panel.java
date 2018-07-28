@@ -27,10 +27,25 @@ public class Panel extends JPanel {
         // Draw the population
         g.setColor(Color.BLACK);
         for (Dot dot : population.getPopulation()) {
-            if(n_updates < dot.getMoveDirections().length) {
-                dot.move(dot.getMoveDirections()[n_updates], 3);
+
+            // If the point is not dead
+            if(!dot.isDead()) {
+                // Move the dot is there is still movements to do
+                if(n_updates < dot.getMoveDirections().length) {
+                    dot.move(dot.getMoveDirections()[n_updates], 3);
+                }
+                // Kill the dot and paint it red
+                else {
+                    dot.setDead(true);
+                    g.setColor(Color.RED);
+                }
+
+            } else {
+                g.setColor(Color.RED);
             }
-                g.fillOval((int) dot.getX(), (int) dot.getY(), 8, 8);
+            g.fillOval((int) dot.getX(), (int) dot.getY(), 8, 8);
+
+
         }
 
         n_updates++;
