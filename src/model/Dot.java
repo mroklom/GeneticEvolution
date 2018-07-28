@@ -7,7 +7,7 @@ import java.util.Arrays;
 public class Dot {
     private double x;
     private double y;
-    private int radius = 16;
+    private int radius = 8;
 
     private boolean dead = false;
 

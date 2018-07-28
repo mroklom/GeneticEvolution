@@ -20,8 +20,8 @@ public class Population {
             }
             
             population[i] = new Dot(
-                    ThreadLocalRandom.current().nextInt(15, WindowsProperties.WIDTH.getValue() - 15),
-                    ThreadLocalRandom.current().nextInt(WindowsProperties.HEIGHT.getValue() - WindowsProperties.HEIGHT.getValue() / 5, WindowsProperties.HEIGHT.getValue() - 15),
+                    WindowsProperties.WIDTH.getValue() / 2,
+                    WindowsProperties.HEIGHT.getValue() - WindowsProperties.HEIGHT.getValue() / 7,
                     directions
             );
         }

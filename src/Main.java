@@ -6,10 +6,9 @@ public class Main {
 
     public static void main(String[] args) {
         Population population = new Population(
-                50,
+                500,
                 1000
         );
         new Window(population);
-
     }
 }
