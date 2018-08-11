@@ -33,6 +33,15 @@ public class Dot {
         return true;
     }
 
+    public static double fit(Dot dot) {
+
+        Objective objective = Objective.getObjective();
+
+        double distance = Math.sqrt(Math.pow(objective.getX() - dot.getX(),2) + Math.pow(objective.getY() - dot.getY(),2));
+
+        return 1 / ( distance + 1 );
+    }
+
     public Dot(double x, double y, int radius) {
         this.x = x;
         this.y = y;
@@ -83,5 +92,13 @@ public class Dot {
 
     public void setRadius(int radius) {
         this.radius = radius;
+    }
+
+    @Override
+    public String toString() {
+        return "Dot{" +
+                "x=" + x +
+                ", y=" + y +
+                '}';
     }
 }

@@ -76,6 +76,21 @@ public class Population {
     }
 
     private void createNewGeneration() {
+
+        // Evaluate the performances of each dot
+        double[] fitnesses = new double[n_dots];
+        for (int i = 0; i < population.length; i++) {
+            fitnesses[i] = Dot.fit(population[i]);
+        }
+
+        // Find the best dot
+
+        // Natural selection ( only keep the n best dots )
+
+        // Crossovers
+
+        // Mutations
+
     }
 
     public int getN_dots() {
