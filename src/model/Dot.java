@@ -9,6 +9,8 @@ public class Dot {
     private double y;
     private int radius = 8;
 
+    private double fitness;
+
     private boolean dead = false;
 
     private double[] moveDirections;
@@ -33,13 +35,15 @@ public class Dot {
         return true;
     }
 
-    public static double fit(Dot dot) {
+    public static void fit(Dot dot) {
 
         Objective objective = Objective.getObjective();
 
         double distance = Math.sqrt(Math.pow(objective.getX() - dot.getX(),2) + Math.pow(objective.getY() - dot.getY(),2));
 
-        return 1 / ( distance + 1 );
+        double fitness =  1 / ( distance + 1 );
+
+        dot.setFitness(fitness);
     }
 
     public Dot(double x, double y, int radius) {
@@ -92,6 +96,14 @@ public class Dot {
 
     public void setRadius(int radius) {
         this.radius = radius;
+    }
+
+    public double getFitness() {
+        return fitness;
+    }
+
+    public void setFitness(double fitness) {
+        this.fitness = fitness;
     }
 
     @Override

@@ -80,12 +80,14 @@ public class Population {
         // Evaluate the performances of each dot
         double[] fitnesses = new double[n_dots];
         for (int i = 0; i < population.length; i++) {
-            fitnesses[i] = Dot.fit(population[i]);
+            Dot.fit(population[i]);
         }
 
-        // Find the best dot
+        // Find the best dot : optional
 
         // Natural selection ( only keep the n best dots )
+
+
 
         // Crossovers
 
