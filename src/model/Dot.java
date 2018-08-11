@@ -111,6 +111,7 @@ public class Dot {
         return "Dot{" +
                 "x=" + x +
                 ", y=" + y +
+                ", fitness=" + fitness +
                 '}';
     }
 }
