@@ -3,8 +3,7 @@ package model;
 import utilis.WindowsProperties;
 import view.Window;
 
-import java.util.Arrays;
-import java.util.Comparator;
+import java.util.*;
 
 public class Population {
     private int n_dots;
@@ -108,9 +107,27 @@ public class Population {
         // Get the parent of the next generation
         Dot[] parents = new Dot[(int) (n_dots * parentRate)];
         System.arraycopy(population, 0, parents, 0, parents.length);
+
         // Crossovers
+        // Generate the list of index of parents
+        List<Integer> parentIndexes = new ArrayList<>();
+        for (int i = 0; i < parents.length; i++) {
+            parentIndexes.add(i);
+        }
+        for (int i = 1; i < newPopulation.length; i++) {
+            // Pick 2 parents to cross
+            Collections.shuffle(parentIndexes);
+
+            // Cross the 2 parents and add the result to the new population
+            newPopulation[i] = Dot.cross(parents[parentIndexes.get(0)], parents[parentIndexes.get(1)]);
+
+        }
 
         // Mutations
+
+
+
+        population = newPopulation;
 
     }
 

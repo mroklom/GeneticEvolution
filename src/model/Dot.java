@@ -114,4 +114,9 @@ public class Dot {
                 ", fitness=" + fitness +
                 '}';
     }
+
+    public static Dot cross(Dot parent, Dot parent1) {
+        // TODO: Crossover method
+        return null;
+    }
 }
