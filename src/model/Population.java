@@ -83,8 +83,8 @@ public class Population {
 
         // Evaluate the performances of each dot
         double[] fitnesses = new double[n_dots];
-        for (int i = 0; i < population.length; i++) {
-            Dot.fit(population[i]);
+        for (Dot dot : population) {
+            Dot.fit(dot);
         }
 
         // Natural selection ( only keep the n best dots )
@@ -107,10 +107,7 @@ public class Population {
 
         // Get the parent of the next generation
         Dot[] parents = new Dot[(int) (n_dots * parentRate)];
-        for (int i = 0; i < parents.length; i++) {
-            parents[i] = population[i];
-        }
-
+        System.arraycopy(population, 0, parents, 0, parents.length);
         // Crossovers
 
         // Mutations
