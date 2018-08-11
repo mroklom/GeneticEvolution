@@ -33,6 +33,12 @@ public class Dot {
         return true;
     }
 
+    public Dot(double x, double y, int radius) {
+        this.x = x;
+        this.y = y;
+        this.radius = radius;
+    }
+
     public Dot(double x, double y, double[] moveDirections) {
         this.x = x;
         this.y = y;

@@ -1,6 +1,7 @@
 package view;
 
 import model.Dot;
+import model.Objective;
 import model.Obstacle;
 import model.Population;
 import utilis.LevelObstacles;
@@ -37,6 +38,16 @@ public class Panel extends JPanel {
         for(Obstacle obstacle : LevelObstacles.getInstance().getOBSTACLES()) {
             g.fillRect(obstacle.getX(), obstacle.getY(), obstacle.getWidth(), obstacle.getHeigth());
         }
+
+        // Print the objective
+        g.setColor(Color.ORANGE);
+        Dot objective = Objective.getObjective();
+        g.fillOval(
+                (int) (objective.getX() - objective.getRadius() / 2),
+                (int) (objective.getY() - objective.getRadius() / 2),
+                objective.getRadius(),
+                objective.getRadius()
+        );
 
         // Print each dot of the population
         for(Dot dot : population.getPopulation()) {
