@@ -17,6 +17,7 @@ public class Window extends JFrame {
         this.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 
         this.setLocationRelativeTo(null);
+        this.setLocation(600, 100);
 
         this.setContentPane(panel);
         this.getContentPane().setSize(WindowsProperties.WIDTH.getValue(), WindowsProperties.HEIGHT.getValue());
@@ -27,20 +28,9 @@ public class Window extends JFrame {
         this.setSize(WindowsProperties.WIDTH.getValue() + insets.left + insets.right, WindowsProperties.HEIGHT.getValue() + insets.top + insets.bottom);
 
         this.setVisible(true);
-
-        animate();
     }
 
-    private void animate() {
-        while (true) {
-
-            panel.repaint();
-
-            try {
-                Thread.sleep(10);
-            } catch (InterruptedException e) {
-                e.printStackTrace();
-            }
-        }
+    public Panel getPanel() {
+        return panel;
     }
 }
